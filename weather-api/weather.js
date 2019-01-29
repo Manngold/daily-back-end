@@ -1,5 +1,5 @@
-const latitude = require("latitude");
-const fetch = require("node-fetch");
+import latitude from "latitude";
+import fetch from "node-fetch";
 //npm install latitude
 const API_KEY = "dd4921796c965b0ccbba3efc67e8b7f7";
 
