@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>지도 생성하기</title>
+  </head>
+  <body>
+    <!-- 지도를 표시할 div 입니다 -->
+    <div id="map" style="width:100%;height:350px;"></div>
+
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6651e6add2bfc2a9c421519fbd190944"
+    ></script>
+    <script>
+      const init = () => {
+        getLocation();
+      };
+      const getLocation = () => {
+        navigator.geolocation.getCurrentPosition(location => {
+          let lat = location.coords.latitude;
+          let lng = location.coords.longitude;
+          console.log(lat, lng);
+          generateMap(lat, lng);
+        });
+      };
+      const generateMap = (lat, lng) => {
+        const mapContainer = document.getElementById("map");
+        const mapOption = {
+          center: new daum.maps.LatLng(lat, lng),
+          level: 3
+        };
+        const map = new daum.maps.Map(mapContainer, mapOption);
+      };
+
+      init();
+    </script>
+  </body>
+</html>
